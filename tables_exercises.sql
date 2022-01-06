@@ -1,0 +1,2 @@
+USE `employees`;
+SHOW TABLES;
