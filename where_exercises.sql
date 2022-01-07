@@ -46,7 +46,7 @@ SELECT '7330 Starts with E and 24292 ends with E' AS message;
 
 SELECT *
 FROM employees
-WHERE last_name LIKE 'E%' AND last_name LIKE '%E';
+WHERE last_name LIKE 'E%E';
 
 SELECT '899 Records returned' AS message;
 
