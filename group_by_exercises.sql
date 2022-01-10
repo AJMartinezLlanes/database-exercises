@@ -66,8 +66,9 @@ GROUP BY emp_no;
 
 	-- Using the dept_emp table, count how many current employees work in each department. The query result should 			show 9 rows, one for each department and the employee count.
 
-SELECT dept_no, Count(emp_no)
+SELECT dept_no, Count(*)
 FROM dept_emp
+WHERE to_date LIKE '9999%'
 GROUP BY dept_no;
 
 	-- Determine how many different salaries each employee has had. This includes both historic and current.
