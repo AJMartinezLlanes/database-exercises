@@ -54,8 +54,26 @@ LOWER(
 )AS username, COUNT(*) AS dups
 FROM employees
 GROUP BY username
+HAVING dups > 1
 ORDER BY dups DESC;
 
+SELECT COUNT(t.username), 
+SUM(t.dups)
+FROM
+(SELECT
+LOWER(
+	CONCAT(
+		SUBSTR(first_name, 1, 1), 
+		SUBSTR(last_name, 1, 4),
+		'_', 
+		SUBSTR(birth_date, 6, 2), 
+		SUBSTR(birth_date, 3, 2)
+	)
+)AS username, COUNT(*) AS dups
+FROM employees
+GROUP BY username
+HAVING dups > 1
+ORDER BY dups DESC) AS t;
 
 -- 9. More practice with aggregate functions:
 	-- Determine the historic average salary for each employee. When you hear, read, or think "for each" with regard 		to SQL, you'll probably be grouping by that exact column.
