@@ -36,10 +36,10 @@ GROUP BY last_name;
 
 -- 7. Find all all employees with first names 'Irena', 'Vidya', or 'Maya'. Use COUNT(*) and GROUP BY to find the number of employees for each gender with those names.
 
-SELECT gender, COUNT(*)
+SELECT first_name, gender, COUNT(*)
 FROM employees
 WHERE first_name IN ('Irena', 'Vidya', 'Maya')
-GROUP BY gender;
+GROUP BY first_name, gender;
 
 -- 8. Using your query that generates a username for all of the employees, generate a count employees for each unique username. Are there any duplicate usernames? YES BONUS: How many duplicate usernames are there? 6
 SELECT
@@ -51,10 +51,10 @@ LOWER(
 		SUBSTR(birth_date, 6, 2), 
 		SUBSTR(birth_date, 3, 2)
 	)
-)AS username, COUNT(*), last_name, first_name, birth_date
+)AS username, COUNT(*) AS dups
 FROM employees
-GROUP BY last_name, first_name, birth_date
-ORDER BY COUNT(*)DESC;
+GROUP BY username
+ORDER BY dups DESC;
 
 
 -- 9. More practice with aggregate functions:
