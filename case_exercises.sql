@@ -80,6 +80,3 @@ WHERE de.to_date > CURDATE() AND s.to_date > CURDATE()
 GROUP BY department_group
 ORDER BY salary_in_USD
 ;
-
-
-
